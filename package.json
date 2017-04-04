@@ -1,0 +1,28 @@
+{
+  "name": "cordova-plugin-mparticle",
+  "version": "1.0.0",
+  "description": "Cordova plugin for mParticle",
+  "homepage": "https://www.mparticle.com",
+  "repository": "mParticle/cordova-plugin-mparticle",
+  "license": "Apache-2.0",
+  "main": "www/mparticle.js",
+  "scripts": {
+    "test": "./node_modules/standard/bin/cmd.js && ./gradlew :src:android:test",
+    "fix": "./node_modules/standard/bin/cmd.js --fix"
+  },
+  "standard": {
+    "ignore": [
+      "/mparticle-example"
+    ]
+  },
+  "devDependencies": {
+    "standard": "^8.6.0"
+  },
+  "cordova": {
+    "id": "cordova-plugin-mparticle",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  }
+}

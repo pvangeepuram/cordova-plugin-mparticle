@@ -1,0 +1,8 @@
+{
+    "mParticle-Apple-SDK": {
+        "name": "mParticle-Apple-SDK",
+        "type": "podspec",
+        "spec": "~> 6.12.4",
+        "count": 1
+    }
+}
