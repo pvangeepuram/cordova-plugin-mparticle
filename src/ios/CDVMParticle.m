@@ -111,7 +111,7 @@
 
     MPCommerceEvent *commerceEvent = nil;
     if (isProductAction) {
-        MPCommerceEventAction action = [json[@"productActionType"] intValue];
+        MPCommerceEventAction action = (MPCommerceEventAction)[json[@"productActionType"] intValue];
         commerceEvent = [[MPCommerceEvent alloc] initWithAction:action];
     }
     else if (isPromotion) {
@@ -128,7 +128,7 @@
     commerceEvent.productListSource = json[@"productActionListName"];
     commerceEvent.screenName = json[@"screenName"];
     commerceEvent.transactionAttributes = [CDVMParticle MPTransactionAttributes:json[@"transactionAttributes"]];
-    commerceEvent.action = [json[@"productActionType"] intValue];
+    commerceEvent.action = (MPCommerceEventAction)[json[@"productActionType"] intValue];
     commerceEvent.checkoutStep = [json[@"checkoutStep"] intValue];
     commerceEvent.nonInteractive = [json[@"nonInteractive"] boolValue];
 
@@ -154,7 +154,7 @@
 }
 
 + (MPPromotionContainer *)MPPromotionContainer:(id)json {
-    MPPromotionAction promotionAction = [json[@"promotionActionType"] intValue];
+    MPPromotionAction promotionAction = (MPPromotionAction)[json[@"promotionActionType"] intValue];
     MPPromotionContainer *promotionContainer = [[MPPromotionContainer alloc] initWithAction:promotionAction promotion:nil];
     NSArray *jsonPromotions = json[@"promotions"];
     [jsonPromotions enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
