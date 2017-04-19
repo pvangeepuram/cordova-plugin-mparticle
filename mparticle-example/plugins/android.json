@@ -10,10 +10,10 @@
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.mparticle.example"
         },
-        "cordova-plugin-mparticle": {
+        "cordova-plugin-console": {
             "PACKAGE_NAME": "com.mparticle.example"
         },
-        "cordova-plugin-console": {
+        "cordova-plugin-mparticle": {
             "PACKAGE_NAME": "com.mparticle.example"
         }
     },

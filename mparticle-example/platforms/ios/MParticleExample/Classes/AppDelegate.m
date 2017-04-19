@@ -34,7 +34,7 @@
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
     [[MParticle sharedInstance] startWithKey:@"REPLACE WITH APP KEY" secret:@"REPLACE WITH APP SECRET"];
-    [MParticle sharedInstance].logLevel = MPILogLevelDebug;
+    [MParticle sharedInstance].logLevel = MPILogLevelVerbose;
     self.viewController = [[MainViewController alloc] init];
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }

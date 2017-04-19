@@ -13,8 +13,8 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "cordova-plugin-whitelist": "1.3.2",
-    "cordova-plugin-mparticle": "1.0.0",
-    "cordova-plugin-console": "1.0.6"
+    "cordova-plugin-console": "1.0.6",
+    "cordova-plugin-mparticle": "1.0.0"
 };
 // BOTTOM OF METADATA
 });

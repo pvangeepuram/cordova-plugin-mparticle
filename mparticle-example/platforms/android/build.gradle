@@ -229,6 +229,7 @@ dependencies {
     // SUB-PROJECT DEPENDENCIES START
     debugCompile(project(path: "CordovaLib", configuration: "debug"))
     releaseCompile(project(path: "CordovaLib", configuration: "release"))
+    compile "com.mparticle:android-core:+"
     // SUB-PROJECT DEPENDENCIES END
 }
 

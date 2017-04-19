@@ -9,11 +9,11 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"MParticle\"><param name=\"ios-package\" value=\"CDVMParticle\" /></feature>",
+                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
+                            "xml": "<feature name=\"MParticle\"><param name=\"ios-package\" value=\"CDVMParticle\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -22,26 +22,18 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-mparticle": {
-            "PACKAGE_NAME": "com.mparticle.example"
-        },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.mparticle.example"
         },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.mparticle.example"
+        },
+        "cordova-plugin-mparticle": {
+            "PACKAGE_NAME": "com.mparticle.example"
         }
     },
     "dependent_plugins": {},
     "modules": [
-        {
-            "id": "cordova-plugin-mparticle.mparticle",
-            "file": "plugins/cordova-plugin-mparticle/www/mparticle.js",
-            "pluginId": "cordova-plugin-mparticle",
-            "clobbers": [
-                "mparticle"
-            ]
-        },
         {
             "id": "cordova-plugin-console.console",
             "file": "plugins/cordova-plugin-console/www/console-via-logger.js",
@@ -57,11 +49,19 @@
             "clobbers": [
                 "cordova.logger"
             ]
+        },
+        {
+            "id": "cordova-plugin-mparticle.mparticle",
+            "file": "plugins/cordova-plugin-mparticle/www/mparticle.js",
+            "pluginId": "cordova-plugin-mparticle",
+            "clobbers": [
+                "mparticle"
+            ]
         }
     ],
     "plugin_metadata": {
-        "cordova-plugin-mparticle": "1.0.0",
         "cordova-plugin-whitelist": "1.3.2",
-        "cordova-plugin-console": "1.0.6"
+        "cordova-plugin-console": "1.0.6",
+        "cordova-plugin-mparticle": "1.0.0"
     }
 }

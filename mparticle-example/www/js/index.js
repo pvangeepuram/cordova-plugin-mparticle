@@ -10,6 +10,7 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+        mparticle.logEvent('Test event', mparticle.EventType.Other, {'Test key': 'Test value'});
     },
 
     // Update DOM on a Received Event

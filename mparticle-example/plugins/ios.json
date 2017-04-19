@@ -7,13 +7,13 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-mparticle": {
-            "PACKAGE_NAME": "com.mparticle.example"
-        },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.mparticle.example"
         },
         "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.mparticle.example"
+        },
+        "cordova-plugin-mparticle": {
             "PACKAGE_NAME": "com.mparticle.example"
         }
     },

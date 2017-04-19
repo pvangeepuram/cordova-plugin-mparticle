@@ -1,5 +1,3 @@
-var MParticle = null;
-
 var app = {
     // Application Constructor
     initialize: function() {
@@ -12,6 +10,7 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+        mparticle.logEvent('Test event', mparticle.EventType.Other, {'Test key': 'Test value'})
     },
 
     // Update DOM on a Received Event
@@ -23,7 +22,7 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
-        console.log('My Received Event: ' + MParticle);
+        console.log('Received Event: ' + id);
     }
 };
 

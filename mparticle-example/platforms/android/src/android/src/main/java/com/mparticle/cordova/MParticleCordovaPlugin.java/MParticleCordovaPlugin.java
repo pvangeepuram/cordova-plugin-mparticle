@@ -114,7 +114,7 @@ public class MParticleCordovaPlugin extends CordovaPlugin {
     private static CommerceEvent ConvertCommerceEvent(JSONObject map) throws JSONException {
         Boolean isProductAction = map.has("productActionType");
         Boolean isPromotion = map.has("promotionActionType");
-        Boolean isImpression = map.has("promotionActionType");
+        Boolean isImpression = map.has("impressions");
 
         if (!isProductAction && !isPromotion && !isImpression) {
             Log.e(LOG_TAG, "Invalid commerce event:" + map.toString());
