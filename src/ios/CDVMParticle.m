@@ -102,16 +102,85 @@
     }];
 }
 
+typedef NS_ENUM(NSUInteger, MPCDVCommerceEventAction) {
+    MPCDVCommerceEventActionAddToCart = 1,
+    MPCDVCommerceEventActionRemoveFromCart,
+    MPCDVCommerceEventActionCheckout,
+    MPCDVCommerceEventActionCheckoutOptions,
+    MPCDVCommerceEventActionClick,
+    MPCDVCommerceEventActionViewDetail,
+    MPCDVCommerceEventActionPurchase,
+    MPCDVCommerceEventActionRefund,
+    MPCDVCommerceEventActionAddToWishList,
+    MPCDVCommerceEventActionRemoveFromWishlist
+};
+
++ (MPCommerceEventAction)MPCommerceEventAction:(NSNumber *)json {
+    int actionInt = [json intValue];
+    MPCommerceEventAction action;
+    switch (actionInt) {
+        case MPCDVCommerceEventActionAddToCart:
+        action = MPCommerceEventActionAddToCart;
+        break;
+
+        case MPCDVCommerceEventActionRemoveFromCart:
+        action = MPCommerceEventActionRemoveFromCart;
+        break;
+
+        case MPCDVCommerceEventActionCheckout:
+        action = MPCommerceEventActionCheckout;
+        break;
+
+        case MPCDVCommerceEventActionCheckoutOptions:
+        action = MPCommerceEventActionCheckoutOptions;
+        break;
+
+        case MPCDVCommerceEventActionClick:
+        action = MPCommerceEventActionClick;
+        break;
+
+        case MPCDVCommerceEventActionViewDetail:
+        action = MPCommerceEventActionViewDetail;
+        break;
+
+        case MPCDVCommerceEventActionPurchase:
+        action = MPCommerceEventActionPurchase;
+        break;
+
+        case MPCDVCommerceEventActionRefund:
+        action = MPCommerceEventActionRefund;
+        break;
+
+        case MPCDVCommerceEventActionAddToWishList:
+        action = MPCommerceEventActionAddToWishList;
+        break;
+
+        case MPCDVCommerceEventActionRemoveFromWishlist:
+        action = MPCommerceEventActionRemoveFromWishlist;
+        break;
+
+        default:
+        action = MPCommerceEventActionAddToCart;
+        NSAssert(NO, @"Invalid commerce event action");
+        break;
+    }
+    return action;
+}
+
 + (MPCommerceEvent *)MPCommerceEvent:(id)json {
     BOOL isProductAction = json[@"productActionType"] != nil;
     BOOL isPromotion = json[@"promotionActionType"] != nil;
     BOOL isImpression = json[@"impressions"] != nil;
-
-    NSAssert(isProductAction || isPromotion || isImpression, @"Invalid commerce event");
+    BOOL isValid = isProductAction || isPromotion || isImpression;
 
     MPCommerceEvent *commerceEvent = nil;
+    if (!isValid) {
+        NSAssert(NO, @"Invalid commerce event");
+        return commerceEvent;
+    }
+
     if (isProductAction) {
-        MPCommerceEventAction action = (MPCommerceEventAction)[json[@"productActionType"] intValue];
+        MPCommerceEventAction action = [CDVMParticle MPCommerceEventAction:json[@"productActionType"]];
         commerceEvent = [[MPCommerceEvent alloc] initWithAction:action];
     }
     else if (isPromotion) {
@@ -125,10 +194,10 @@
     commerceEvent.checkoutOptions = json[@"checkoutOptions"];
     commerceEvent.currency = json[@"currency"];
     commerceEvent.productListName = json[@"productActionListName"];
-    commerceEvent.productListSource = json[@"productActionListName"];
+    commerceEvent.productListSource = json[@"productActionListSource"];
     commerceEvent.screenName = json[@"screenName"];
     commerceEvent.transactionAttributes = [CDVMParticle MPTransactionAttributes:json[@"transactionAttributes"]];
-    commerceEvent.action = (MPCommerceEventAction)[json[@"productActionType"] intValue];
+    commerceEvent.action = [CDVMParticle MPCommerceEventAction:json[@"productActionType"]];
     commerceEvent.checkoutStep = [json[@"checkoutStep"] intValue];
     commerceEvent.nonInteractive = [json[@"nonInteractive"] boolValue];
 
