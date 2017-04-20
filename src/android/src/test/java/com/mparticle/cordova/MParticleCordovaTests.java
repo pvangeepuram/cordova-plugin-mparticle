@@ -108,8 +108,13 @@ public class MParticleCordovaTests {
         JSONArray products = new JSONArray();
         products.put(jsonProduct);
 
+
+        JSONObject jsonTransactionAttributes = new JSONObject();
+        jsonTransactionAttributes.put("id", "Test transaction id");
+
         jsonCommerceEvent.put("productActionType", IntFromProductActionType(Product.ADD_TO_CART));
         jsonCommerceEvent.put("products", products);
+        jsonCommerceEvent.put("transactionAttributes", jsonTransactionAttributes);
 
         MParticleCordovaPlugin plugin = new MParticleCordovaPlugin();
         JSONArray array = new JSONArray();

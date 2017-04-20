@@ -15,7 +15,7 @@
 		634E5E827BDD45ABBCC057A0 /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4796ED0EA88941739CCD1584 /* CDVLogger.m */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
 		F4D2A50DC650ED8C7BC4BD5B /* libPods-MParticleExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F552ED612599E216AB087598 /* libPods-MParticleExample.a */; };
-		0C39C7FDC9AB47AC9D4FA0E4 /* CDVMParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FFF71E8C2440E897DBD8E6 /* CDVMParticle.m */; };
+		1B6957A7571444A0AD456FF9 /* CDVMParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E63DA141AD4AF180A85280 /* CDVMParticle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,7 @@
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		F552ED612599E216AB087598 /* libPods-MParticleExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MParticleExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = MParticleExample/config.xml; sourceTree = "<group>"; };
-		11FFF71E8C2440E897DBD8E6 /* CDVMParticle.m */ = {isa = PBXFileReference; name = "CDVMParticle.m"; path = "cordova-plugin-mparticle/CDVMParticle.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		70E63DA141AD4AF180A85280 /* CDVMParticle.m */ = {isa = PBXFileReference; name = "CDVMParticle.m"; path = "cordova-plugin-mparticle/CDVMParticle.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +168,7 @@
 			children = (
 				4796ED0EA88941739CCD1584 /* CDVLogger.m */,
 				6CFFC8252EB64A4A95192124 /* CDVLogger.h */,
-				11FFF71E8C2440E897DBD8E6 /* CDVMParticle.m */,
+				70E63DA141AD4AF180A85280 /* CDVMParticle.m */,
 			);
 			name = Plugins;
 			path = MParticleExample/Plugins;
@@ -346,7 +346,7 @@
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				634E5E827BDD45ABBCC057A0 /* CDVLogger.m in Sources */,
-				0C39C7FDC9AB47AC9D4FA0E4 /* CDVMParticle.m in Sources */,
+				1B6957A7571444A0AD456FF9 /* CDVMParticle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

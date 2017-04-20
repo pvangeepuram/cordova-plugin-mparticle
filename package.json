@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-mparticle",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Cordova plugin for mParticle",
   "homepage": "https://www.mparticle.com",
   "repository": "mParticle/cordova-plugin-mparticle",

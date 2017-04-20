@@ -4,6 +4,9 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="MParticle">
+        <param name="android-package" value="com.mparticle.cordova.MParticleCordovaPlugin" />
+    </feature>
     <name>MParticleExample</name>
     <description>
         An example Apache Cordova application for mParticle
@@ -21,7 +24,4 @@
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
-    <feature name="MParticle">
-        <param name="android-package" value="com.mparticle.cordova.MParticleCordovaPlugin" />
-    </feature>
 </widget>

@@ -56,8 +56,8 @@ mparticle.logEvent('Test event', mparticle.EventType.Other, { 'Test key': 'Test 
 
 ```js
 var product = new mparticle.Product('Test product for cart', 1234, 19.99)
-var transactionAttributes = {'transactionId': 'Test transaction id')
-var event = mparticle.CommerceEvent.createProductActionEvent(ProductActionType.AddToCart, [product], transactionAttributes)
+var transactionAttributes = new mparticle.TransactionAttributes('Test transaction id')
+var event = mparticle.CommerceEvent.createProductActionEvent(mparticle.ProductActionType.AddToCart, [product], transactionAttributes)
 
 mparticle.logCommerceEvent(event)
 ```

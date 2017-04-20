@@ -151,6 +151,35 @@ var mparticle = {
     }
   },
 
+  TransactionAttributes: function (transactionId) {
+    this.transactionId = transactionId
+
+    this.setAffiliation = function (affiliation) {
+      this.affiliation = affiliation
+      return this
+    }
+
+    this.setRevenue = function (revenue) {
+      this.revenue = revenue
+      return this
+    }
+
+    this.setShipping = function (shipping) {
+      this.shipping = shipping
+      return this
+    }
+
+    this.setTax = function (tax) {
+      this.tax = tax
+      return this
+    }
+
+    this.setCouponCode = function (couponCode) {
+      this.couponCode = couponCode
+      return this
+    }
+  },
+
   CommerceEvent: function () {
     this.setTransactionAttributes = function (transactionAttributes) {
       this.transactionAttributes = transactionAttributes
@@ -224,7 +253,7 @@ var mparticle = {
   }
 }
 
-mparticle.CommerceEvent.createProductActionEvent = function (productActionType, products, transactionAttributes = {}) {
+mparticle.CommerceEvent.createProductActionEvent = function (productActionType, products, transactionAttributes) {
   return new mparticle.CommerceEvent()
                   .setProductActionType(productActionType)
                   .setProducts(products)

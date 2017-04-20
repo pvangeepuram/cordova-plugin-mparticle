@@ -6,6 +6,7 @@ import com.mparticle.MParticle;
 import com.mparticle.commerce.CommerceEvent;
 import com.mparticle.commerce.Impression;
 import com.mparticle.commerce.Product;
+import com.mparticle.commerce.TransactionAttributes;
 import com.mparticle.commerce.Promotion;
 
 import org.apache.cordova.CallbackContext;
@@ -129,7 +130,9 @@ public class MParticleCordovaPlugin extends CordovaPlugin {
             JSONArray productsArray = map.getJSONArray("products");
             JSONObject productMap = productsArray.getJSONObject(0);
             Product product = ConvertProduct(productMap);
-            builder = new CommerceEvent.Builder(productAction, product);
+            JSONObject transactionAttributesMap = map.getJSONObject("transactionAttributes");
+            TransactionAttributes transactionAttributes = ConvertTransactionAttributes(transactionAttributesMap);
+            builder = new CommerceEvent.Builder(productAction, product).transactionAttributes(transactionAttributes);
 
             for (int i = 1; i < productsArray.length(); ++i) {
                 productMap = productsArray.getJSONObject(i);
@@ -205,6 +208,36 @@ public class MParticleCordovaPlugin extends CordovaPlugin {
         }
 
         return builder.build();
+    }
+
+    private static TransactionAttributes ConvertTransactionAttributes(JSONObject map) throws JSONException {
+        if (!map.has("transactionId")) {
+            return null;
+        }
+
+        TransactionAttributes transactionAttributes = new TransactionAttributes(map.getString("transactionId"));
+
+        if (map.has("affiliation")) {
+            transactionAttributes.setAffiliation(map.getString("affiliation"));
+        }
+
+        if (map.has("revenue")) {
+            transactionAttributes.setRevenue(map.getDouble("revenue"));
+        }
+
+        if (map.has("shipping")) {
+            transactionAttributes.setShipping(map.getDouble("shipping"));
+        }
+
+        if (map.has("tax")) {
+            transactionAttributes.setTax(map.getDouble("tax"));
+        }
+
+        if (map.has("couponCode")) {
+            transactionAttributes.setCouponCode(map.getString("couponCode"));
+        }
+
+        return transactionAttributes;
     }
 
     private static Promotion ConvertPromotion(JSONObject map) throws JSONException {

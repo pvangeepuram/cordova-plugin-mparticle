@@ -11,11 +11,6 @@ var app = {
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
         mparticle.logEvent('Test event', mparticle.EventType.Other, {'Test key': 'Test value'})
-        var product = new mparticle.Product('Test product for cart', 1234, 19.99)
-
-        var transactionAttributes = {'transactionId': 'Test transaction id'}
-        var event = mparticle.CommerceEvent.createProductActionEvent(mparticle.ProductActionType.AddToCart, [product], transactionAttributes)
-        mparticle.logCommerceEvent(event)
     },
 
     // Update DOM on a Received Event
