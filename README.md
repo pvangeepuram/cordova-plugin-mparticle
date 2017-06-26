@@ -8,7 +8,7 @@ Cordova plugin for mParticle
 # Installation
 
 ```bash
-cordova plugin install mparticle
+cordova plugin add cordova-plugin-mparticle
 ```
 
 **Grab your mParticle key and secret** from [your app's dashboard][1] and move on to the OS-specific instructions below.
