@@ -29,7 +29,10 @@ public class MParticleCordovaPlugin extends CordovaPlugin {
     private final static String LOG_TAG = "MParticleCordovaPlugin";
 
     public boolean execute(String action, final JSONArray args, final CallbackContext callbackContext) throws JSONException {
-        if (action.equals("logEvent")) {
+        
+        if (action.equals("start")) {
+           MParticle.start(this.cordova.getActivity().getApplication()); 
+        } else if (action.equals("logEvent")) {
             logEvent(args);
         } else if (action.equals("logCommerceEvent")) {
             logCommerceEvent(args);
