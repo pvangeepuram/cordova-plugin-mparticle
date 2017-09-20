@@ -31,7 +31,17 @@ public class MParticleCordovaPlugin extends CordovaPlugin {
     public boolean execute(String action, final JSONArray args, final CallbackContext callbackContext) throws JSONException {
         
         if (action.equals("start")) {
-           MParticle.start(this.cordova.getActivity().getApplication()); 
+           String key = null;
+           String secret = null;
+           if (args != null) {
+               key = args.getString(0);
+               secret = args.getString(1);
+           }
+           if (key != null && secret != null) {
+               MParticle.start(this.cordova.getActivity().getApplication(), key, secret);
+           } else {
+               MParticle.start(this.cordova.getActivity().getApplication());
+           } 
         } else if (action.equals("logEvent")) {
             logEvent(args);
         } else if (action.equals("logCommerceEvent")) {
