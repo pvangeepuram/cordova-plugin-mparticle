@@ -40,13 +40,13 @@ public class MParticleCordovaPlugin extends CordovaPlugin {
            }
            MParticleOptions options = MParticleOptions.builder(this.cordova.getActivity().getApplication())
                               .credentials(key, secret).build();
-           Mparticle.start(options);
+           MParticle.start(options);
         } else if (action.equals("logEvent")) {
             logEvent(args);
         } else if (action.equals("logCommerceEvent")) {
             logCommerceEvent(args);
         } else if (action.equals("logScreenEvent")) {
-            logScreen(args);
+            logScreenEvent(args);
         } else if (action.equals("setUserAttribute")) {
             setUserAttribute(args);
         } else if (action.equals("setUserAttributeArray")) {
@@ -92,7 +92,7 @@ public class MParticleCordovaPlugin extends CordovaPlugin {
     public void setUserAttribute(final JSONArray args) throws JSONException {
         final String userAttribute = args.getString(0);
         final String value = args.getString(1);
-        MParticle.getInstance().setUserAttribute(userAttribute, value);
+        //MParticle.getInstance().setUserAttribute(userAttribute, value);
     }
 
     public void setUserAttributeArray(final JSONArray args) throws JSONException {
@@ -103,25 +103,25 @@ public class MParticleCordovaPlugin extends CordovaPlugin {
             for (int i = 0; i < values.length(); ++i) {
                 list.add(values.getString(i));
             }
-            MParticle.getInstance().setUserAttributeList(key, list);
+            //MParticle.getInstance().setUserAttributeList(key, list);
         }
     }
 
     public void setUserTag(final JSONArray args) throws JSONException {
         final String tag = args.getString(0);
-        MParticle.getInstance().setUserTag(tag);
+        //MParticle.getInstance().setUserTag(tag);
     }
 
     public void removeUserAttribute(final JSONArray args) throws JSONException {
         final String key = args.getString(0);
-        MParticle.getInstance().removeUserAttribute(key);
+        //MParticle.getInstance().removeUserAttribute(key);
     }
 
     public void setUserIdentity(final JSONArray args) throws JSONException {
         final String identity = args.getString(0);
         int type = args.getInt(1);
         MParticle.IdentityType identityType = MParticle.IdentityType.parseInt(type);
-        MParticle.getInstance().setUserIdentity(identity, identityType);
+        //MParticle.getInstance().setUserIdentity(identity, identityType);
     }
 
     private static CommerceEvent ConvertCommerceEvent(JSONObject map) throws JSONException {
