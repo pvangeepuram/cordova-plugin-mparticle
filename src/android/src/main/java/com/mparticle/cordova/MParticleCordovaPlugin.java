@@ -3,6 +3,7 @@ package com.mparticle.cordova;
 import android.util.Log;
 
 import com.mparticle.MParticle;
+import com.mparticle.MParticleOptions;
 import com.mparticle.commerce.CommerceEvent;
 import com.mparticle.commerce.Impression;
 import com.mparticle.commerce.Product;
@@ -37,17 +38,15 @@ public class MParticleCordovaPlugin extends CordovaPlugin {
                key = args.getString(0);
                secret = args.getString(1);
            }
-           if (key != null && secret != null) {
-               MParticle.start(this.cordova.getActivity().getApplication(), key, secret);
-           } else {
-               MParticle.start(this.cordova.getActivity().getApplication());
-           } 
+           MParticleOptions options = MParticleOptions.builder(this.cordova.getActivity().getApplication())
+                              .credentials(key, secret).build();
+           Mparticle.start(options);
         } else if (action.equals("logEvent")) {
             logEvent(args);
         } else if (action.equals("logCommerceEvent")) {
             logCommerceEvent(args);
         } else if (action.equals("logScreenEvent")) {
-            logScreenEvent(args);
+            logScreen(args);
         } else if (action.equals("setUserAttribute")) {
             setUserAttribute(args);
         } else if (action.equals("setUserAttributeArray")) {
